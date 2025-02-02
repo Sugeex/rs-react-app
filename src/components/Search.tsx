@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
 interface SearchProps {
+  value: string;
   onChange: (value: string) => void;
   handleClick: () => void;
 }
 
 class Search extends Component<SearchProps> {
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.props.onChange(event.target.value.trim());
+    this.props.onChange(event.target.value);
   };
 
   render() {
@@ -15,6 +16,7 @@ class Search extends Component<SearchProps> {
       <div>
         <input
           type="text"
+          value={this.props.value}
           placeholder="Type name"
           onChange={this.handleChange}
         />
